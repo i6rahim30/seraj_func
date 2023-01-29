@@ -1,13 +1,8 @@
 class Schedule :
+    scedule_appintments=[]
+    def __init__(self,scedule_appintments) :
+        self.scedule_appintments=scedule_appintments
+        name = None
 
-    mohamed = {
-        "sunday":"1:00",
-    }
-    def __init__(self,name) :
-        name = None 
-
-    def returnSchedual(name) :
-        if(name == "mohamed") :
-            return mohamed
 
 
