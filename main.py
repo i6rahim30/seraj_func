@@ -15,7 +15,7 @@ def check_found(appointment):
 
 def show_schedule(schedule):
     for sp in schedual.scedule_appintments:
-        print(sp.date,"-",sp.time,"\n")
+        print(sp.day,"-",sp.time,"\n")
     
 
 def add_ppointment(new_app):
@@ -35,7 +35,7 @@ def reschedule(ap):
 def reschedule(ap):
     date=datetimetest.get_date_object(ap.date)
 
-    last_date=datetimetest.get_doctor_next_day(date,ap.doctor.schedule.scedule_appintments)
+    last_date=datetimetest.get_doctor_next_day2(date,ap.doctor.schedule.scedule_appintments)
 
     ap.date=last_date
     print ("Added In Date :",ap.date," In Time : ",ap.time," With Doctor",ap.doctor)
@@ -45,11 +45,11 @@ appointments=[]
 
 
 
-sp1=Scedule_Appintment('30/01/23',"9:00")
+sp1=Scedule_Appintment('0',"12:00")
 sps.append(sp1)
-sp2=Scedule_Appintment('30/01/23',"11:00")
+sp2=Scedule_Appintment('2',"11:00")
 sps.append(sp2)
-sp3=Scedule_Appintment('01/02/23',"11:00")
+sp3=Scedule_Appintment('0',"14:00")
 sps.append(sp3)
 
 schedual=Schedule(sps)
@@ -58,11 +58,11 @@ doc1=Doctor("mohamed","Bones",schedual)
 show_schedule(doc1.schedule)
 patient1=Patient("Ahmed",25)
 
-ap=Appointment(doc1,patient1,sp1.date,sp1.time)
+ap=Appointment(doc1,patient1,"30/01/23","9:00")
 add_ppointment(ap)
-ap2=Appointment(doc1,patient1,sp2.date,sp2.time)
+ap2=Appointment(doc1,patient1,"30/01/23","11:00")
 add_ppointment(ap2)
-ap3=Appointment(doc1,patient1,sp2.date,"9:00")
+ap3=Appointment(doc1,patient1,"30/01/23","9:00")
 add_ppointment(ap3)
 
 reschedule(ap2)

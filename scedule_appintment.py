@@ -1,6 +1,6 @@
 class Scedule_Appintment:
-    date=None
+    day=None
     time=None
-    def __init__(self,date,time) :
-        self.date=date
+    def __init__(self,day,time) :
+        self.day=day
         self.time=time
