@@ -9,13 +9,32 @@ def get_current_day(current_date,current_day,current_time=None):
     return  date
 
 def get_doctor_next_day(current_date,sps):
+    date=current_date+timedelta(days=0)
+    do=True
+    while do:
+        date=date+timedelta(days=1)
+        for sp in sps:
+            if date.weekday()==int(sp.day) and sp.time!="11:00":
+                do =False
+                break
+    print(sp.time)
+    return date
+
+
+def get_doctor_next_day2(current_date,sps):
     date=current_date+timedelta(days=1)
-    print("!!!!!!11")
+    while check_avalible(sps,date):
+        date=date+timedelta(days=1)
+    return date
+    
+def check_avalible(sps,date):
     for sp in sps:
-        sp_ob=get_date_object(sp.date)
-        print(sp_ob,"----",date)
-        if sp.date==date:
-            return date
+        if date.weekday()==int(sp.day) and sp.time!="12:00":
+            print (sp.time)
+            return False
+            
+    return True
+
         
 
 
